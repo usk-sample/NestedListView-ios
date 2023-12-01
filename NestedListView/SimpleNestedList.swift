@@ -23,30 +23,7 @@ struct SimpleNestedList: View {
     var body: some View {
         
         VStack {
-            List {
-                
-                ForEach(items.indices, id: \.self) { index in
-                    VStack {
-                        HStack {
-                            Text(items[index].text)
-                            Spacer()
-                        }
-                        
-                        if items[index].children.count > 0 {
-                            ForEach(items[index].children.indices, id: \.self) { index2 in
-                                HStack {
-                                    Spacer()
-                                    Text(items[index].children[index2].text)
-                                }
-                            }
-                           
-                        }
-                        
-                    }
-                }
-                
-            }
-            .frame(maxHeight: .infinity)
+            SimpleNestedListView(items: items)
             HStack {
                 Button("add parent") {
                     self.items.append(.init(text: "new parent", children: []))
@@ -58,6 +35,58 @@ struct SimpleNestedList: View {
             }.padding()
         }
       
+    }
+}
+
+struct SimpleNestedListView: View {
+    
+    var items: [SimpleParent]
+    
+    var body: some View {
+        List {
+            
+            ForEach(items.indices, id: \.self) { index in
+                SimpleNestedRow(item: items[index])
+            }
+            
+        }
+        .frame(maxHeight: .infinity)
+    }
+    
+}
+
+struct SimpleNestedRow: View {
+    
+    var item: SimpleParent
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text(item.text)
+                Spacer()
+            }
+            
+            if item.children.count > 0 {
+                ForEach(item.children.indices, id: \.self) { index in
+                    SimpleNestedSubRow(child: item.children[index])
+                }
+               
+            }
+            
+        }
+    }
+    
+}
+
+struct SimpleNestedSubRow: View {
+    
+    var child: SimpleChild
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Text(child.text)
+        }
     }
 }
 
