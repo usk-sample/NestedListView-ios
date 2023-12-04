@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SimpleNestedList: View {
+class ViewModel: ObservableObject {
     
-    @State var items: [SimpleParent] = [
+    var items: [SimpleParent] = [
         SimpleParent(text: "parent 1", children: [
             SimpleChild(text: "child 1"),
             SimpleChild(text: "child 2")
@@ -20,17 +20,33 @@ struct SimpleNestedList: View {
         ])
     ]
     
+    func getItems() -> [SimpleParent] {
+        return items
+    }
+    
+    func update() {
+        objectWillChange.send()
+    }
+    
+}
+
+struct SimpleNestedList: View {
+    
+    @EnvironmentObject var viewModel: ViewModel
+    
     var body: some View {
         
         VStack {
-            SimpleNestedListView(items: items)
+            SimpleNestedListView(items: viewModel.getItems())
             HStack {
                 Button("add parent") {
-                    self.items.append(.init(text: "new parent", children: []))
+                    viewModel.items.append(.init(text: "new parent", children: []))
+                    viewModel.update()
                 }
                 Spacer()
                 Button("add child") {
-                    self.items[items.count-1].children.append(.init(text: "new child"))
+                    viewModel.items[viewModel.items.count-1].children.append(.init(text: "new child"))
+                    viewModel.update()
                 }
             }.padding()
         }
@@ -59,6 +75,8 @@ struct SimpleNestedRow: View {
     
     var item: SimpleParent
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -70,7 +88,14 @@ struct SimpleNestedRow: View {
                 ForEach(item.children.indices, id: \.self) { index in
                     SimpleNestedSubRow(child: item.children[index])
                 }
-               
+                
+                Text("count:\(item.children.count)")
+            }
+            
+            Button("Add") {
+                guard let index = viewModel.getItems().firstIndex(where: { $0.text == item.text }) else { return }
+                viewModel.items[index].children.append(.init(text: "new child"))
+                viewModel.update()
             }
             
         }
@@ -92,4 +117,5 @@ struct SimpleNestedSubRow: View {
 
 #Preview {
     SimpleNestedList()
+        .environmentObject(ViewModel())
 }

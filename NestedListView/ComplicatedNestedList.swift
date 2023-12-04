@@ -9,28 +9,21 @@ import SwiftUI
 
 struct ComplicatedNestedList: View {
     
-    @State var items: [SimpleParent] = [
-        SimpleParent(text: "parent 1", children: [
-            SimpleChild(text: "child 1"),
-            SimpleChild(text: "child 2")
-        ]),
-        SimpleParent(text: "parent 2", children: [
-            SimpleChild(text: "child 1"),
-            SimpleChild(text: "child 2")
-        ])
-    ]
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         VStack {
-            ComplicatedNestedListView(items: items)
+            ComplicatedNestedListView(items: viewModel.items)
                 .frame(maxHeight: .infinity)
             HStack {
                 Button("add parent") {
-                    self.items.append(.init(text: "new parent", children: []))
+                    viewModel.items.append(.init(text: "new parent", children: []))
+                    viewModel.update()
                 }
                 Spacer()
                 Button("add child") {
-                    self.items[items.count-1].children.append(.init(text: "new child"))
+                    viewModel.items[viewModel.items.count-1].children.append(.init(text: "new child"))
+                    viewModel.update()
                 }
             }.padding()
         }
@@ -44,27 +37,7 @@ struct ComplicatedNestedListView: View {
     var body: some View {
         List {
             ForEach(items.indices, id: \.self) { index in
-                VStack {
-                    HStack {
-                        Text(items[index].text)
-                        Spacer()
-                    }
-                    
-                    if items[index].children.count > 0 {
-                        
-                        List {
-                            ForEach(items[index].children.indices, id: \.self) { index2 in
-                                HStack {
-                                    Spacer()
-                                    Text(items[index].children[index2].text)
-                                }
-                            }
-                        }
-                        .listStyle(.plain)
-                        .frame(height: 40 * CGFloat(items[index].children.count))
-                       
-                    }
-                }
+                ComplecatedNestedRow(item: items[index])
             }
         }
     }
