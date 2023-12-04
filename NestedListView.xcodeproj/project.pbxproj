@@ -14,6 +14,7 @@
 		F2420DE42B195341005C65D9 /* SimpleNestedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2420DE32B195341005C65D9 /* SimpleNestedList.swift */; };
 		F2420DE62B195615005C65D9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2420DE52B195615005C65D9 /* Data.swift */; };
 		F2420DE82B195640005C65D9 /* ComplicatedNestedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2420DE72B195640005C65D9 /* ComplicatedNestedList.swift */; };
+		F2C158692B1D898E00D5473B /* OfficialNestedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C158682B1D898E00D5473B /* OfficialNestedList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		F2420DE32B195341005C65D9 /* SimpleNestedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNestedList.swift; sourceTree = "<group>"; };
 		F2420DE52B195615005C65D9 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F2420DE72B195640005C65D9 /* ComplicatedNestedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicatedNestedList.swift; sourceTree = "<group>"; };
+		F2C158682B1D898E00D5473B /* OfficialNestedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialNestedList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				F2420DD72B1952DC005C65D9 /* ContentView.swift */,
 				F2420DE32B195341005C65D9 /* SimpleNestedList.swift */,
 				F2420DE72B195640005C65D9 /* ComplicatedNestedList.swift */,
+				F2C158682B1D898E00D5473B /* OfficialNestedList.swift */,
 				F2420DE52B195615005C65D9 /* Data.swift */,
 				F2420DD92B1952DD005C65D9 /* Assets.xcassets */,
 				F2420DDB2B1952DD005C65D9 /* Preview Content */,
@@ -149,6 +152,7 @@
 				F2420DE42B195341005C65D9 /* SimpleNestedList.swift in Sources */,
 				F2420DD82B1952DC005C65D9 /* ContentView.swift in Sources */,
 				F2420DD62B1952DC005C65D9 /* NestedListViewApp.swift in Sources */,
+				F2C158692B1D898E00D5473B /* OfficialNestedList.swift in Sources */,
 				F2420DE62B195615005C65D9 /* Data.swift in Sources */,
 				F2420DE82B195640005C65D9 /* ComplicatedNestedList.swift in Sources */,
 			);

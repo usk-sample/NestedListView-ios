@@ -15,3 +15,15 @@ struct SimpleParent {
 struct SimpleChild {
     let text: String
 }
+
+struct Item: Identifiable {
+    let id: String
+    let text: String
+    var subItems: [Item]
+}
+
+extension Item {
+    static func item(text: String, subItems: [Item] = []) -> Item {
+        return .init(id: UUID().uuidString, text: text, subItems: subItems)
+    }
+}
