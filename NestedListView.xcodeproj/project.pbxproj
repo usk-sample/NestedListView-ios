@@ -12,7 +12,7 @@
 		F2420DDA2B1952DD005C65D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2420DD92B1952DD005C65D9 /* Assets.xcassets */; };
 		F2420DDD2B1952DD005C65D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2420DDC2B1952DD005C65D9 /* Preview Assets.xcassets */; };
 		F2420DE62B195615005C65D9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2420DE52B195615005C65D9 /* Data.swift */; };
-		F2C158692B1D898E00D5473B /* OfficialNestedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C158682B1D898E00D5473B /* OfficialNestedList.swift */; };
+		F2C158692B1D898E00D5473B /* NestedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C158682B1D898E00D5473B /* NestedListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		F2420DD92B1952DD005C65D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2420DDC2B1952DD005C65D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2420DE52B195615005C65D9 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		F2C158682B1D898E00D5473B /* OfficialNestedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialNestedList.swift; sourceTree = "<group>"; };
+		F2C158682B1D898E00D5473B /* NestedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			children = (
 				F2420DD52B1952DC005C65D9 /* NestedListViewApp.swift */,
 				F2420DD72B1952DC005C65D9 /* ContentView.swift */,
-				F2C158682B1D898E00D5473B /* OfficialNestedList.swift */,
+				F2C158682B1D898E00D5473B /* NestedListView.swift */,
 				F2420DE52B195615005C65D9 /* Data.swift */,
 				F2420DD92B1952DD005C65D9 /* Assets.xcassets */,
 				F2420DDB2B1952DD005C65D9 /* Preview Content */,
@@ -145,7 +145,7 @@
 			files = (
 				F2420DD82B1952DC005C65D9 /* ContentView.swift in Sources */,
 				F2420DD62B1952DC005C65D9 /* NestedListViewApp.swift in Sources */,
-				F2C158692B1D898E00D5473B /* OfficialNestedList.swift in Sources */,
+				F2C158692B1D898E00D5473B /* NestedListView.swift in Sources */,
 				F2420DE62B195615005C65D9 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

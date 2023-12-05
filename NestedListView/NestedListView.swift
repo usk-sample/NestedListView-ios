@@ -1,5 +1,5 @@
 //
-//  OfficialNestedList.swift
+//  NestedListView.swift
 //  NestedListView
 //
 //  Created by Yusuke Hasegawa on 2023/12/04.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OfficialNestedList: View {
+struct NestedListView: View {
     
     @State var items: [Item] = [
         .item(text: "task 1"),
@@ -78,5 +78,5 @@ struct OfficialNestedList: View {
 }
 
 #Preview {
-    OfficialNestedList()
+    NestedListView()
 }
