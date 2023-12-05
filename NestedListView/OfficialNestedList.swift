@@ -11,7 +11,10 @@ struct OfficialNestedList: View {
     
     @State var items: [Item] = [
         .item(text: "task 1"),
-        .item(text: "task 2", subItems: [.item(text: "sub task a"), .item(text: "sub task b")])
+        .item(text: "task 2", subItems: [
+            .item(text: "sub task a"),
+            .item(text: "sub task b")
+        ])
     ]
     
     var body: some View {
@@ -21,31 +24,29 @@ struct OfficialNestedList: View {
             List {
                 ForEach(items) { item in
                     DisclosureGroup(
-                        isExpanded: .constant(true),
+                        isExpanded: .constant(true), // always shows sub items
                         content: {
                             ForEach(item.subItems) { sub in
                                 Text(sub.text)
                             }
                             .onMove { indexSet, index in
-                                debugPrint("\(indexSet) to \(indexSet)")
+
                                 var item = item
                                 item.subItems.move(fromOffsets: indexSet, toOffset: index)
                                                                 
                                 if let i = item.subItems.firstIndex(where: { $0.id == item.id }) {
                                     item.subItems.move(fromOffsets: indexSet, toOffset: index)
                                     items[i] = item
-                                    debugPrint(item)
                                 }
                             }
                             .listRowInsets(.init(top: 0, leading: 30, bottom: 0, trailing: 0))
                         },
                         label: { Text(item.text) }
 
-                    ).tint(.clear)
+                    ).tint(.clear) // erase expand/collapse icon
                     
                 }
                 .onMove { indexSet, index in
-                    debugPrint("\(indexSet) to \(indexSet)")
                     items.move(fromOffsets: indexSet, toOffset: index)
                 }
             }

@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct SimpleParent {
-    let text: String
-    var children: [SimpleChild]
-}
-
-struct SimpleChild {
-    let text: String
-}
-
 struct Item: Identifiable {
     let id: String
     let text: String

@@ -9,16 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
-        TabView {
-            SimpleNestedList()
-                .tabItem { Label("simple list", systemImage: "globe") }
-            ComplicatedNestedList()
-                .tabItem { Label("complicated list", systemImage: "globe") }
-            OfficialNestedList()
-                .tabItem { Label("official list", systemImage: "globe") }
-
-        }
+        OfficialNestedList()
     }
 }
 
